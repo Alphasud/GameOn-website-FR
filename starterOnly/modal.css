@@ -138,6 +138,12 @@ main {
 }
 
 /* Modal form */
+.help-text {
+  display: block;
+  font-size: 13px;
+  padding-top: 5px;
+  padding-left: 10px;
+}
 
 .button {
   background: #fe142f;
@@ -448,7 +454,7 @@ input[data-error]::after {
 }
 .btn-signup {
   outline: none;
-  text-transform: capitalize;
+  text-transform:none;
   font-size: 1.3rem;
   padding: 15px 23px;
   margin: 0;
