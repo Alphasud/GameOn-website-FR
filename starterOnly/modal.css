@@ -145,10 +145,12 @@ main {
 
 .invalid {
   border: 2px solid #fe142f;
+  transition: all .1s ease-in-out;
 }
 
 .valid {
   border: 2px solid #4CAF50;
+  transition: all .1s ease-in-out;
 }
 
 .radio-text {
@@ -160,13 +162,24 @@ main {
   font-size: 13px;
 }
 
-.thank-you-message {
+.thank-you-container {
   display: none;
-  height: 200px;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 70vh;
+  text-align: center;
+  font-size: 34px;
 }
 
+.thank-you-message {
+  margin-top: 50%;
+}
 
+.button-modal {
+  width: 50%;
+  margin: 0 auto;
+  border: none;
+}
 
 
 .button {
