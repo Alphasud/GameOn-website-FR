@@ -12,6 +12,7 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const close = document.querySelector(".close");
+const modalBody = document.querySelector('.modal-body');
 
 // Form Elements
 const form = document.getElementById('form');
@@ -21,7 +22,7 @@ const lastName = document.getElementById('last');
 const mail = document.getElementById('email');
 const birthDate = document.getElementById('birthdate');
 const tournaments = document.getElementById('quantity');
-const city = document.querySelectorAll('input[name="location"]:checked');
+const city = document.querySelectorAll('input[name="location"]');
 
 const newYork = document.getElementById('location1');
 const sanFrancisco = document.getElementById('location2');
@@ -30,11 +31,19 @@ const chicago = document.getElementById('location4');
 const boston = document.getElementById('location5');
 const portland = document.getElementById('location6');
 
+const radioText = document.querySelector('.radio-text');
+const radioZone = document.getElementById('radio-zone');
+
+const checkboxOne = document.getElementById('checkbox1');
+const checkText = document.querySelector('.check-text');
+
+const thankYou = document.querySelector('.thank-you-message');
+
 //Validation Colors
 const green = '#4CAF50'
 const red = '#F44336'
 
-
+let isFormValid = false;
 
 // launch modal form
 function launchModal() {
@@ -55,77 +64,131 @@ close.addEventListener('click', function (event) {
 
 form.addEventListener('submit', function (event) {
   event.preventDefault();
-  //if (
-  //validateFirstName() &&
-  //  validateLastName() &&
-  //  validateEmail() &&
- //   validateBirthdate() &&
- //   validateTournament() &&
-    validateCity()
- // ) {
+  validateInputs();
+  if (isFormValid == true)
+   {
+    form.remove();
+    thankYou.style.display = 'flex';
+
+  } else {
     
-  //}
+  }
 });
+
+function validateInputs() {
+  if (validateFirstName()
+    && validateLastName()
+    && validateEmail()
+    && validateBirthdate()
+    && validateTournament()
+    && validateCity()
+    && validateCheckbox()) {
+    isFormValid = true;
+    return isFormValid;
+  } else {
+    isFormValid = false;
+    return isFormValid;
+  }
+    
+  }
+
 
 // VALIDATION FUNCTIONS :
 
 function validateFirstName() {
-  //Check if it's empty
-  if (checkIfEmpty(firstName)) return;
-  //Check for number of letters
-  if (checkNumberOfLetters(firstName)) return;
-  return true;
+  //Check if it's empty nd if number of letters is appropriate and return true or false.
+  if (checkIfEmpty(firstName) && checkNumberOfLetters(firstName)) return true;
+  return false;
 }
 
 function validateLastName() {
-  //Check if it's empty
-  if (checkIfEmpty(lastName)) return;
-  //Check for number of letters
-  if (checkNumberOfLetters(lastName)) return;
-  return true;
+  //Check if it's empty nd if number of letters is appropriate and return true or false.
+  if (checkIfEmpty(lastName) && checkNumberOfLetters(lastName)) return true;
+  return false;
 }
 
+
 function validateEmail() {
-  if (checkIfEmpty(mail)) return;
-  if (emailFormat(mail)) return;
-  return true;
+  if (checkIfEmpty(mail) && emailFormat(mail)) return true;
+  return false;
 }
 
 function validateBirthdate() {
-  if (checkIfEmpty(birthDate)) return;
-  if (checkIfAdult(birthDate)) return;
-  return true;
+  if (checkIfEmpty(birthDate) && checkIfAdult(birthDate)) return true;
+  return false;
 }
 
 function validateTournament() {
-  if (checkIfEmpty(tournaments)) return;
-  if (numberFormat(tournaments)) return;
-  return true;
+  if (checkIfEmpty(tournaments) && numberFormat(tournaments)) return true;
+  return false;
 }
 
 function validateCity() {
-  if (checkIfRadioChecked()) return;
-  return true;
- }
+  if (checkIfRadioChecked()) return true;
+  return false;
+}
+ 
+function validateCheckbox() {
+  if (checkboxChecked()) return true;
+  return false;
+}
   
 function checkIfRadioChecked() {
-  if (city != null) {
+  for (var i = 0; i < city.length; i++) {
+    if (city[i].type === 'radio' && city[i].checked) {
+      unApplyStyleToRadioButtons();
+      return true;
+    }
+  }
+  applyStyleToRadioButtons();
+  return false;
+}
+
+function checkboxChecked() {
+  if (checkboxOne.checked) {
+    unApplyStyleToCheckbox();
     return true;
   } else {
+    applyStyleToCheckbox();
     return false;
   }
+}
 
+function applyStyleToCheckbox() {
+  checkText.style.display = 'block';
+  checkText.innerHTML = `Vous devez accepter les conditions d'utilisation.`;
+  checkText.style.color = red;
+}
+
+function unApplyStyleToCheckbox() {
+  checkText.style.display = 'none';
+}
+
+function applyStyleToRadioButtons() {
+  radioText.innerHTML = 'Veuillez cocher une case';
+  radioText.style.color = red;
+  radioZone.style.border = '2px solid red';
+  radioZone.style.borderRadius = '10px';
+  radioZone.style.paddingRight = '5px';
+}
+
+function unApplyStyleToRadioButtons() {
+  radioText.innerHTML = '';
+  radioText.style.color = null;
+  radioZone.style.border = null;
+  radioZone.style.borderRadius = null;
+  radioZone.style.paddingRight = null;
 }
 
 function checkIfEmpty(field) {
   if (isEmpty(field.value.trim())) {    //Trim is in case people just enter a space.
     // Set field as Invalid
     setInvalid(field, `Le champs ci-dessus ne doit pas être vide.`);
-    return true;
+    return false;
   } else {
     // Set field as Valid
     setValid(field);
-    return false;
+    return true;
   }
 }
 
@@ -154,8 +217,10 @@ function emailFormat(field) {
 function numberFormat(field) {
   if (isNaN(field.value)) {
     setInvalid(field, `Veuillez entrer un caractère numérique`);
+    return false;
   } else {
     setValid(field);
+    return true;
   }
 }
 
@@ -163,8 +228,10 @@ function checkIfAdult(field) {
   var age = getAge(field.value);
   if (age >= 18) {
     setValid(field);
+    return true;
   } else {
     setInvalid(field, 'Vous devez avoir plus de 18 ans pour participer.');
+    return false;
   }
 }
 
@@ -199,7 +266,6 @@ function setInvalid(field, message) {
 function setValid(field) {
   field.className = 'text-control valid';
   field.nextElementSibling.innerHTML = '';
-  //field.nextElementSibling.style.color = green;
 }
 
 
