@@ -196,13 +196,15 @@ function isEnoughLetter(value) { //Check if number of letter is enought
 }
 
 function setInvalid(field, message) { //This function set an invalid style to the next element
-  field.className = 'text-control invalid';
+  //field.className = 'text-control invalid';
+  field.classList.add('invalid');
   field.nextElementSibling.innerHTML = message;
   field.nextElementSibling.style.color = red;
 }
 
 function setValid(field) { //This function set a valid style to the next element
-  field.className = 'text-control valid';
+  //field.className = 'text-control valid';
+  field.classList.add('valid');
   field.nextElementSibling.innerHTML = '';
 }
 

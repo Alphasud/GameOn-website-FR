@@ -18,10 +18,10 @@ let isFormValid = false;
 form.addEventListener('submit', function (event) { 
   event.preventDefault();
  // this function validate all the inputs
-  if (validateInputs()) // If the form is valid (=true) then 
+  if (validateInputs()) {// If the form is valid (=true) then 
     //-------------------------------------------------------------//
-   //-----------You could put your AJAX request here--------------//
-  //-------------------------------------------------------------//
+    //-----------You could put your AJAX request here--------------//
+    //-----------------------------------------------------------//
     form.style.display = 'none'; //Form is hidden
     const realName = firstName.value;
     thankYouContainer.style.display = 'flex';
@@ -40,7 +40,7 @@ form.addEventListener('submit', function (event) {
       form.reset(); //Form is reset
       closeModal(); //Modal is closed
     });
-  
+  }
   
 });
 

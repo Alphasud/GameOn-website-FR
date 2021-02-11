@@ -3,16 +3,13 @@ const modalbg = document.querySelector('.bground');
 const modalBtn = document.querySelectorAll('.modal-btn');
 const close = document.querySelector('.close');
 const thankYouContainer = document.querySelector('.thank-you-container');
-const textControl = document.querySelectorAll('.text-control');
+const textControlInvalid = document.getElementsByClassName('invalid');
 const helpText = document.querySelectorAll('.help-text');
 
 
 //Launch modal form
 function launchModal() {
   modalbg.style.display = "block";
-  console.log(textControl);
- // textControl.classList.remove('text-control'); //Reset validation style
- // textControl.classList.add('non');
   helpText.innerHTML = ''; //Reset error message
   form.reset();
 }
@@ -31,10 +28,17 @@ close.addEventListener('click', function (event) {
   form.style.display = ''; // Form is shown
   form.reset(); // Form fields are reset
   thankYouContainer.style.display = 'none';
-  textControl.className = 'text-control'; //Reset validation style
-  helpText.innerHTML = ''; //Reset error message
+  resetStyle();
   closeModal(); // Modal is closed
 });
 
+function resetStyle() {
+  for (var i = 0; i < textControlInvalid.length; i++) {
+    textControlInvalid[i].classList.remove('invalid');
+  }
+  for (var x = 0; x < helpText.length; x++) {
+    helpText[x].innerHTML = '';
+  }
+}
 
 export { closeModal };
