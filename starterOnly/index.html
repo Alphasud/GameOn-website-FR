@@ -5,14 +5,9 @@
     <title>Reservation</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <link rel="stylesheet" href="modal.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=DM+Sans"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans" rel="stylesheet"/>
+    <script src="js/main.js" type="module"></script>
   </head>
   <body>
     <header class="topnav" id="myTopnav">
@@ -45,7 +40,7 @@
           <button class="btn-signup modal-btn">je m'inscris</button>
         </div>
         <div class="hero-img">
-          <img src="./bg_img.jpg" alt="img" />
+          <img src="./bg_img.jpg" alt="Une personne joue a un jeu vidéo" />
         </div>
         <button class="btn-signup modal-btn">Je m'inscris</button>
       </section>
@@ -54,35 +49,35 @@
         <div class="content">
           <span class="close"></span>
           <div class="modal-body">
-            <form id="form" name="reserve" action="index.html" method="get" onsubmit="">
+            <form id="form" name="reserve" action="index.html" enctype="multipart/form-data">
               <div class="formData">
                 <label for="first">Prénom</label><br />
-                <input class="text-control" type="text" id="first" name="prénom" onfocusout="validateFirstName()"/>
-                <div class="help-text"></div>
+                <input class="text-control" type="text" id="first" name="prénom"/>
+                <span class="help-text"></span>
                 <br />
               </div>
               <div class="formData">
                 <label for="last">Nom</label><br />
-                <input class="text-control" type="text" id="last" name="Nom" onfocusout="validateLastName()"/>
+                <input class="text-control" type="text" id="last" name="Nom"/>
                 <span class="help-text"></span>
                 <br />
               </div>
               <div class="formData">
                 <label for="email">E-mail</label><br />
-                <input class="text-control" type="email" id="email" name="Email" onfocusout="validateEmail()"/>
+                <input class="text-control" type="email" id="email" name="Email"/>
                 <span class="help-text"></span>
                 <br />
               </div>
               <div class="formData">
                 <label for="birthdate">Date de naissance</label><br />
-                <input class="text-control" type="date" id="birthdate" name="Date de naissance" onfocusout="validateBirthdate()"/>
+                <input class="text-control" type="date" id="birthdate" name="Date de naissance"/>
                 <span class="help-text"></span>
                 <br />
               </div>
               <div class="formData">
                 <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label>
                 <br />
-                <input type="text" class="text-control" id="quantity" name="Nombre de tournois" onfocusout="validateTournament()"/>
+                <input type="text" class="text-control" id="quantity" name="Nombre de tournois"/>
                 <span class="help-text"></span>
               </div>
 
@@ -157,6 +152,5 @@
     <footer>
       <p class="copyrights">Copyright 2014 - 2020, GameOn Inc.</p>
     </footer>
-    <script src="modal.js"></script>
   </body>
 </html>
