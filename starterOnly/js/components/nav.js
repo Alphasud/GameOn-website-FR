@@ -1,8 +1,15 @@
+const icon = document.querySelector('.icon');
+
+icon.addEventListener('click', function (event) {
+  event.stopPropagation();
+  editNav();
+});
+
 function editNav() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
+  var myTopNav = document.getElementById("myTopnav");
+  if (myTopNav.className === "topnav") {
+    myTopNav.className += " responsive";
   } else {
-    x.className = "topnav";
+    myTopNav.className = "topnav";
   }
 }

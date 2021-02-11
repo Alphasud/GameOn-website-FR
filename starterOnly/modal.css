@@ -37,7 +37,8 @@ img {
     float: left;
 }
 .main-navbar {
-    float: right;
+    float: left;
+    margin-top: 10px;
 }
 .topnav a {
   float: left;
@@ -73,6 +74,7 @@ img {
     float: right;
     display: block;
   }
+  .main-navbar {float: right;}
 }
 
 @media screen and (max-width: 768px) {
@@ -96,7 +98,7 @@ img {
   .topnav a.icon {
     float: right;
     display: block;
-    margin-top: -15px;
+    margin-top: 0px;
   }
 } 
 
@@ -469,7 +471,7 @@ input[data-error]::after {
   z-index: 1;
 }
 .hero-headline {
-  font-size: 6rem;
+  font-size: 5rem;
   font-weight: normal;
   white-space: nowrap;
 }
@@ -495,6 +497,7 @@ input[data-error]::after {
   height: 100%;
   display: block;
   padding: 0;
+  object-fit: cover;
 }
 .copyrights {
   color: #fe142f;
@@ -530,6 +533,7 @@ footer {
   .hero-headline {
     font-size: 4.5rem;
     white-space: normal;
+    
   }
   .hero-text {
     width: unset;
