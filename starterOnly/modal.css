@@ -143,16 +143,6 @@ main {
   padding-top: 5px;
 }
 
-.invalid {
-  border: 2px solid #fe142f;
-  transition: all .1s ease-in-out;
-}
-
-.valid {
-  border: 2px solid #4CAF50;
-  transition: all .1s ease-in-out;
-}
-
 .radio-text {
   font-size: 13px;
 }

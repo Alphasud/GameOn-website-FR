@@ -3,14 +3,14 @@ const modalbg = document.querySelector('.bground');
 const modalBtn = document.querySelectorAll('.modal-btn');
 const close = document.querySelector('.close');
 const thankYouContainer = document.querySelector('.thank-you-container');
-const textControlInvalid = document.getElementsByClassName('invalid');
+const textControlInvalid = document.querySelectorAll('.text-control');
 const helpText = document.querySelectorAll('.help-text');
 
 
 //Launch modal form
 function launchModal() {
   modalbg.style.display = "block";
-  helpText.innerHTML = ''; //Reset error message
+  resetStyle();
   form.reset();
 }
 
@@ -34,7 +34,7 @@ close.addEventListener('click', function (event) {
 
 function resetStyle() {
   for (var i = 0; i < textControlInvalid.length; i++) {
-    textControlInvalid[i].classList.remove('invalid');
+    textControlInvalid[i].style.border = 'none';
   }
   for (var x = 0; x < helpText.length; x++) {
     helpText[x].innerHTML = '';
