@@ -241,7 +241,7 @@ main {
 }
 
 .content {
-  margin: 18% auto;
+  margin: 5% auto;
   width: 100%;
   max-width: 500px;
   animation-name: modalopen;
@@ -253,6 +253,9 @@ main {
   color: #fff;
   padding-top: 10px;
 }
+ @media screen and (max-width: 580px) {
+   .content {margin: 18% auto;}
+ }
 
 .modal-body {
   padding: 15px 8%;
