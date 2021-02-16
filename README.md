@@ -1,4 +1,4 @@
-# Projet 'GameOn' (Projet 4) de parcours Développeur Front-end.
+# Projet 'GameOn' (Projet 4) de parcours Développeur Front-end d'OpenClassroom.
 
 Un matin, vous recevez le courriel suivant : 
 
