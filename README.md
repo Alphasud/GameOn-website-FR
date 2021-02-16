@@ -1,4 +1,4 @@
-# Projet 'GameOn' (Projet 4) de parcours Développeur Front-end d'OpenClassroom.
+# Projet 'GameOn' (Projet 4) du parcours Développeur Front-end d'OpenClassroom.
 
 Un matin, vous recevez le courriel suivant : 
 
@@ -45,5 +45,6 @@ Un matin, vous recevez le courriel suivant :
 
     Erika
 
-Vous ouvrez les maquettes pour avoir une idée de ce à quoi ressemble la page d'accueil : 
+Vous ouvrez les maquettes pour avoir une idée de ce à quoi ressemble la page d'accueil :
+
 ![Maquette du site GameOn](https://user.oc-static.com/upload/2020/08/14/15974189716945_image2.png)
