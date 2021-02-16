@@ -10,10 +10,6 @@ const firstName = document.getElementById('first');
 const thankYouContainer = document.querySelector('.thank-you-container');
 
 
-
-//Form is set on not Valid (false) on start
-let isFormValid = false;
-
 //Submit the form 
 form.addEventListener('submit', function (event) { 
   event.preventDefault();
@@ -37,6 +33,8 @@ form.addEventListener('submit', function (event) {
       event.stopPropagation;
       form.style.display = ''; //Form is shown again
       thankYouContainer.style.display = 'none';
+      thankYouMessage.remove();
+      closeButton.remove();
       form.reset(); //Form is reset
       closeModal(); //Modal is closed
     });
@@ -53,10 +51,8 @@ function validateInputs() {  // if not, it returns isFormValid on false.
     && validateTournament()
     && validateCity()
     && validateCheckbox()) {
-    //isFormValid = true;
     return true;
   } else {
-    //isFormValid = false;
     return false;
   }
     
