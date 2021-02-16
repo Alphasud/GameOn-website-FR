@@ -31,7 +31,7 @@ décrivent ce qu'il reste à faire.](https://github.com/OpenClassrooms-Student-C
 
 Nous avons reçu quelques commentaires de la part de l’équipe de QA récemment,  
 donc lorsque tu soumets ton code, assure-toi de : 
-    travailler sur un repo GitHub forké ;
+    travailler sur un repo GitHub forké ;  
     utiliser des fichiers séparés pour le HTML, le CSS et le JavaScript;  
     toujours commenter ton code (décrire chaque fonction et chaque classe,    
     ainsi que les parties du code qui nécessitent plus de détails);  
