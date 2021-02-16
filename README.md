@@ -17,17 +17,17 @@ Un matin, vous recevez le courriel suivant :
     relais et que tu complètes la partie Front-End.   
 
     Pour te donner un aperçu, Jason avait commencé  à travailler  
-    sur la structure HTML et le style CSS, sur la base de ces  
-    maquettes. Il a terminé la mise en page et le contenu de la  
+    sur la structure HTML et le style CSS, sur [la base de ces  
+    maquettes](https://www.figma.com/file/prxFGnSUoEhk6PTcMaJQim/UI-Design-GameOn-EN?node-id=0%3A1). Il a terminé la mise en page et le contenu de la  
     page d'accueil ainsi que de la modale du formulaire. Il a  
     également ajouté le JavaScript pour le lancement de la  
-    maquette. Voici le lien vers le repo avec le code qu'il a déjà  
-    complété.
+    maquette. Voici le lien vers le repo avec le [code qu'il a déjà  
+    complété.](https://github.com/OpenClassrooms-Student-Center/GameOn-website-FR/)
 
     Ton travail consiste à ajouter le code JavaScript manquant pour que le  
     formulaire soit pleinement fonctionnel. Pour t’aider à démarrer,  
-    j'ai demandé à Jason d'ajouter les issues sur le repo GitHub qui  
-    décrivent ce qu'il reste à faire.   
+    j'ai demandé à Jason d'ajouter les issues sur le [repo GitHub qui  
+    décrivent ce qu'il reste à faire.](https://github.com/OpenClassrooms-Student-Center/GameOn-website-FR/issues)   
 
     Nous avons reçu quelques commentaires de la part de l’équipe de QA récemment,  
     donc lorsque tu soumets ton code, assure-toi de : 
