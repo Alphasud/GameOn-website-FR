@@ -8,6 +8,7 @@ import {closeModal} from '../components/modal.js';
 const form = document.getElementById('form');
 const firstName = document.getElementById('first');
 const thankYouContainer = document.querySelector('.thank-you-container');
+const thankYouContainerChildren = thankYouContainer.children;
 
 
 //Submit the form 
@@ -33,8 +34,7 @@ form.addEventListener('submit', function (event) {
       event.stopPropagation;
       form.style.display = ''; //Form is shown again
       thankYouContainer.style.display = 'none';
-      thankYouMessage.remove();
-      closeButton.remove();
+      Array.from(thankYouContainerChildren).forEach(child => { child.remove() });
       form.reset(); //Form is reset
       closeModal(); //Modal is closed
     });

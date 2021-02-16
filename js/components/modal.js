@@ -5,6 +5,7 @@ const close = document.querySelector('.close');
 const thankYouContainer = document.querySelector('.thank-you-container');
 const textControlInvalid = document.querySelectorAll('.text-control');
 const helpText = document.querySelectorAll('.help-text');
+const thankYouContainerChildren = thankYouContainer.children;
 
 
 //Launch modal form
@@ -25,6 +26,7 @@ function closeModal() {
 //Close modal event
 close.addEventListener('click', function (event) {
   event.stopPropagation();
+  Array.from(thankYouContainerChildren).forEach(child => { child.remove() });
   form.style.display = ''; // Form is shown
   form.reset(); // Form fields are reset
   thankYouContainer.style.display = 'none';
