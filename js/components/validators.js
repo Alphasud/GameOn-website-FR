@@ -94,7 +94,7 @@ function checkboxChecked() { //Check if checkbox is checked
 
 function applyErrorStyleToCheckbox() { //Add error message to checkboxes
   checkText.style.display = 'block'; //Error message element is shown
-  checkText.innerHTML = `Vous devez accepter les conditions d'utilisation.`; // Text is added to it
+  checkText.innerHTML = `Vous devez accepter les conditions d'utilisation pour continuer.`; // Text is added to it
   checkText.style.color = red; // Text is put in red
 }
 
@@ -103,7 +103,7 @@ function unApplyErrorStyleToCheckbox() { //Remove error styling by hiding the er
 }
 
 function applyErrorStyleToRadioButtons() { //Add error message to radio buttons
-  radioText.innerHTML = 'Veuillez cocher une case'; //Message
+  radioText.innerHTML = 'Veuillez sélectionner une ville.'; //Message
   radioText.style.color = red; //Text in red
   radioZone.style.border = '2px solid red'; //Add border around all radio buttons
   radioZone.style.borderRadius = '10px';
