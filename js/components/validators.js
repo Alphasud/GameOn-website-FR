@@ -74,35 +74,35 @@ function validateCheckbox() {
 function checkIfRadioChecked() {
   for (var i = 0; i < city.length; i++) { // Loop inside the city const 
     if (city[i].checked) { // One by one check if city is checked and if one is checked
-      unApplyStyleToRadioButtons(); // this function remove the error styling if any
+      unApplyErrorStyleToRadioButtons(); // this function remove the error styling if any
       return true;
     }
   }
-  applyStyleToRadioButtons(); // This function add error styling
+  applyErrorStyleToRadioButtons(); // This function add error styling
   return false;
 }
 
 function checkboxChecked() { //Check if checkbox is checked
   if (checkboxOne.checked) {
-    unApplyStyleToCheckbox(); //If checked, remove error style if any
+    unApplyErrorStyleToCheckbox(); //If checked, remove error style if any
     return true;
   } else {
-    applyStyleToCheckbox(); //If not checked, add error style
+    applyErrorStyleToCheckbox(); //If not checked, add error style
     return false;
   }
 }
 
-function applyStyleToCheckbox() { //Add error message to checkboxes
+function applyErrorStyleToCheckbox() { //Add error message to checkboxes
   checkText.style.display = 'block'; //Error message element is shown
   checkText.innerHTML = `Vous devez accepter les conditions d'utilisation.`; // Text is added to it
   checkText.style.color = red; // Text is put in red
 }
 
-function unApplyStyleToCheckbox() { //Remove error styling by hiding the error message element
+function unApplyErrorStyleToCheckbox() { //Remove error styling by hiding the error message element
   checkText.style.display = 'none'; 
 }
 
-function applyStyleToRadioButtons() { //Add error message to radio buttons
+function applyErrorStyleToRadioButtons() { //Add error message to radio buttons
   radioText.innerHTML = 'Veuillez cocher une case'; //Message
   radioText.style.color = red; //Text in red
   radioZone.style.border = '2px solid red'; //Add border around all radio buttons
@@ -110,7 +110,7 @@ function applyStyleToRadioButtons() { //Add error message to radio buttons
   radioZone.style.paddingRight = '5px';
 }
 
-function unApplyStyleToRadioButtons() { // Remove error styling from radio buttons
+function unApplyErrorStyleToRadioButtons() { // Remove error styling from radio buttons
   radioText.innerHTML = '';
   radioText.style.color = null;
   radioZone.style.border = null;
@@ -121,7 +121,7 @@ function unApplyStyleToRadioButtons() { // Remove error styling from radio butto
 function checkIfEmpty(field) { //Check if field is empty
   if (isEmpty(field.value.trim())) {    //Trim is in case people just enter a space.
     // Set field as Invalid
-    setInvalid(field, `Le champs ci-dessus ne doit pas être vide.`);
+    setInvalid(field, `Le champs '${field.name}' ne doit pas être vide.`);
     return false;
   } else {
     // Set field as Valid
@@ -154,7 +154,10 @@ function emailFormat(field) { //Check if address format is correct
 
 function numberFormat(field) { //Check if a number or not with NotaNumber function
   if (isNaN(field.value)) {
-    setInvalid(field, `Veuillez entrer un caractère numérique`);
+    setInvalid(field, `Veuillez entrer un caractère numérique.`);
+    return false;
+  } else if (field.value < 0) {
+    setInvalid(field, `Veuillez entrer un chiffre positif.`);
     return false;
   } else {
     setValid(field);
@@ -167,9 +170,13 @@ function checkIfAdult(field) { //Check for age using the date (must be over 18)
   if (age >= 18) {
     setValid(field);
     return true;
-  } else {
+  } else if (age < 18 && age >= 0) {
     setInvalid(field, 'Vous devez avoir plus de 18 ans pour participer.');
     return false;
+  } else if (age < 0) {
+    setInvalid(field, 'La date ne peut pas être postérieure à la date actuelle.');
+    return false;
+
   }
 }
 
