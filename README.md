@@ -1,4 +1,6 @@
-# Projet 'GameOn' (Projet 4) du parcours Développeur Front-end d'OpenClassroom.
+# Projet 'GameOn' (Projet 4) du parcours Développeur Front-end d'OpenClassroom.  
+
+Deployé sur cette [adresse](https://alphasud.github.io/GameOn-website-FR)  
 
 Un matin, vous recevez le courriel suivant : 
 
