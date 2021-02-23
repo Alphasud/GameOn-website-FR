@@ -1,16 +1,4 @@
-  
-// DOM Elements
-const modalbg = document.querySelector('.bground');
-const modalBtn = document.querySelectorAll('.modal-btn');
-const close = document.querySelector('.close');
-const thankYouContainer = document.querySelector('.thank-you-container');
-const thankYouContainerChildren = thankYouContainer.children;
-const textControlInvalid = document.querySelectorAll('.text-control');
-const helpText = document.querySelectorAll('.help-text');
-const icon = document.querySelector('.icon');
 
-// Form Elements
-const form = document.getElementById('form');
 const firstName = document.getElementById('first');
 const lastName = document.getElementById('last');
 const mail = document.getElementById('email');
@@ -28,113 +16,7 @@ const checkText = document.querySelector('.check-text');
 //Bad Validation Color
 const red = '#F44336'
 
-///////////----NAV-----///////////
 
-icon.addEventListener('click', function (event) {
-  event.stopPropagation();
-  editNav();
-});
-
-function editNav() {
-  var myTopNav = document.getElementById("myTopnav");
-  if (myTopNav.className === "topnav") {
-    myTopNav.className += " responsive";
-  } else {
-    myTopNav.className = "topnav";
-  }
-}
-
-///////////----MODAL-----///////////
-
-
-//Launch modal form
-function launchModal() {
-  modalbg.style.display = "block";
-  resetStyle();
-  form.reset();
-}
-
-//Launch modal event
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
-
-//Close modal form
-function closeModal() {
-  modalbg.style.display = "none";
-}
-
-//Close modal event
-close.addEventListener('click', function (event) {
-  event.stopPropagation();
-  Array.from(thankYouContainerChildren).forEach(child => { child.remove() });
-  form.style.display = ''; // Form is shown
-  form.reset(); // Form fields are reset
-  thankYouContainer.style.display = 'none';
-  resetStyle();
-  closeModal(); // Modal is closed
-});
-
-function resetStyle() {
-  for (var i = 0; i < textControlInvalid.length; i++) {
-    textControlInvalid[i].style.border = 'none';
-  }
-  for (var x = 0; x < helpText.length; x++) {
-    helpText[x].innerHTML = '';
-  }
-}
-
-
-
-///////////----FORM-----///////////
-
-//Submit the form 
-form.addEventListener('submit', function (event) { 
-  event.preventDefault();
- // this function validate all the inputs
-  if (validateInputs()) {// If the form is valid (=true) then 
-    //-------------------------------------------------------------//
-    //-----------You could put your AJAX request here--------------//
-    //-----------------------------------------------------------//
-    form.style.display = 'none'; //Form is hidden
-    const realName = firstName.value;
-    thankYouContainer.style.display = 'flex';
-    const thankYouMessage = document.createElement('p'); //Create a p element
-    thankYouMessage.className = "thank-you-message"; // With this class
-    thankYouContainer.appendChild(thankYouMessage); // add element to container in html
-    thankYouMessage.innerHTML = `Merci ${realName}, <br> nous avons bien reçu vos informations.`; //Personalize the message
-    const closeButton = document.createElement('button'); // create close button
-    closeButton.className = 'button button-modal'; // add class to button for styling
-    closeButton.innerHTML = 'Fermer'; // add text to button
-    thankYouContainer.appendChild(closeButton); // add button to container
-    closeButton.addEventListener('click', function (event) { //Listen to click on button
-      event.stopPropagation;
-      form.style.display = ''; //Form is shown again
-      thankYouContainer.style.display = 'none';
-      Array.from(thankYouContainerChildren).forEach(child => { child.remove() });
-      form.reset(); //Form is reset
-      closeModal(); //Modal is closed
-    });
-  }
-  
-});
-
-//This function validates all the inputs and return true if all the inputs are OK 
-function validateInputs() {
-  if (validateFirstName()
-    && validateLastName()
-    && validateEmail()
-    && validateBirthdate()
-    && validateTournament()
-    && validateCity()
-    && validateCheckbox()) {
-    return true;
-  } else {
-    return false;
-  }
-    
-}
-
-
-///////////----VALIDATORS-----///////////
 
 // VALIDATION FUNCTIONS :
 //These functions validate field datas according to what was asked. Function are launched on focus out
@@ -330,4 +212,14 @@ function setValid(field) { //This function set a valid style to the next element
   field.style.border = '2px solid #4CAF50';
   field.nextElementSibling.innerHTML = '';
 }
+
+
+
+export { validateFirstName, validateLastName, validateEmail, validateBirthdate, validateTournament, validateCity, validateCheckbox };
+
+
+
+
+
+
 
